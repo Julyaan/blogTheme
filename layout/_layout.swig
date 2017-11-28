@@ -7,9 +7,12 @@
 
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
+
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
+  <link rel="shortcut icon" href="/favicon.ico" />
   {% include '_third-party/analytics/index.swig' %}
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
@@ -21,7 +24,7 @@
 
   <div class="{{ container_class }} {% block page_class %}{% endblock %}">
     <div class="headband"></div>
-
+    <a href="https://github.com/julyaan"><img style="position: absolute; top: 0; right: 0; border: 0; max-width: 10%" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
@@ -80,5 +83,16 @@
   {% include '_third-party/mathjax.swig' %}
   {% include '_third-party/scroll-cookie.swig' %}
   {% include '_third-party/exturl.swig' %}
+  <!-- 颗粒漂浮背景 -->
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+  <script type="text/javascript">
+  (function(){
+    var imageBg = new Image();
+      imageBg.onload = function () {
+          document.body.style.backgroundImage= 'url(https://source.unsplash.com/random/1600x900)'
+        }
+      imageBg.src = 'https://source.unsplash.com/random/1600x900'
+  })()
+  </script>
 </body>
 </html>
